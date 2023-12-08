@@ -22,9 +22,7 @@ Route::get('/auth', function () {
     return view('index');
 });
 
-Route::get('/dboard', function () {
-    return view('dashboard');
-});
+Route::get('/dboard',[blogController::class,'show']);
 
 Route::post('/create/page', function () {
     return view('create');

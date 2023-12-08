@@ -150,107 +150,24 @@
     </div>
 
     <div class="blog-content">
+        @foreach($datas as $data)
         <div class="content">
             <div class="blog-content-img">
-                <img src="/thumbnail/con-img-1.jpg" class="thumbnail">
+                <img src="{{ asset('/storage/app/' . $data->image) }}" class="thumbnail">
             </div>
 
             <div class="overview">
                 <div class="blog-title">
-                    <a href="#" class="blog-content-overview">title of content title of content title of content title of content title of content title of content title of content title of content title of content title of content v title of content title of content title of content title of content title of content title of content title of content title of content title of content </a>
+                    <a href="#" class="blog-content-overview">{{ $data->title }}</a>
                 </div>
 
                 <div class="blog-context">
-                    <p>ellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsis</p>
+                    <p>{{ $data->description }}</p>
                 </div>
             </div>
         </div>
         <hr>
-
-        <div class="content">
-            <div class="blog-content-img">
-                <img src="/thumbnail/con-img-1.jpg" class="thumbnail">
-            </div>
-
-            <div class="overview">
-                <div class="blog-title">
-                    <a href="#" class="blog-content-overview">title of content title of content title of content title of content title of content title of content title of content title of content title of content title of content v title of content title of content title of content title of content title of content title of content title of content title of content title of content </a>
-                </div>
-
-                <div class="blog-context">
-                    <p>ellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsis</p>
-                </div>
-            </div>
-        </div>
-        <hr>
-
-        <div class="content">
-            <div class="blog-content-img">
-                <img src="/thumbnail/con-img-1.jpg" class="thumbnail">
-            </div>
-
-            <div class="overview">
-                <div class="blog-title">
-                    <a href="#" class="blog-content-overview">title of content title of content title of content title of content title of content title of content title of content title of content title of content title of content v title of content title of content title of content title of content title of content title of content title of content title of content title of content </a>
-                </div>
-
-                <div class="blog-context">
-                    <p>ellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsis</p>
-                </div>
-            </div>
-        </div>
-        <hr>
-
-        <div class="content">
-            <div class="blog-content-img">
-                <img src="/thumbnail/con-img-1.jpg" class="thumbnail">
-            </div>
-
-            <div class="overview">
-                <div class="blog-title">
-                    <a href="#" class="blog-content-overview">title of content title of content title of content title of content title of content title of content title of content title of content title of content title of content v title of content title of content title of content title of content title of content title of content title of content title of content title of content </a>
-                </div>
-
-                <div class="blog-context">
-                    <p>ellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsis</p>
-                </div>
-            </div>
-        </div>
-        <hr>
-
-        <div class="content">
-            <div class="blog-content-img">
-                <img src="/thumbnail/con-img-1.jpg" class="thumbnail">
-            </div>
-
-            <div class="overview">
-                <div class="blog-title">
-                    <a href="#" class="blog-content-overview">title of content title of content title of content title of content title of content title of content title of content title of content title of content title of content v title of content title of content title of content title of content title of content title of content title of content title of content title of content </a>
-                </div>
-
-                <div class="blog-context">
-                    <p>ellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsis</p>
-                </div>
-            </div>
-        </div>
-        <hr>
-
-        <div class="content">
-            <div class="blog-content-img">
-                <img src="/thumbnail/con-img-1.jpg" class="thumbnail">
-            </div>
-
-            <div class="overview">
-                <div class="blog-title">
-                    <a href="#" class="blog-content-overview">title of content title of content title of content title of content title of content title of content title of content title of content title of content title of content v title of content title of content title of content title of content title of content title of content title of content title of content title of content </a>
-                </div>
-
-                <div class="blog-context">
-                    <p>ellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsisellipsis</p>
-                </div>
-            </div>
-        </div>
-        <hr>
+        @endforeach
         
     </div>
 
