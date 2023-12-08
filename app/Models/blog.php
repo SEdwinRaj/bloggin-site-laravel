@@ -10,5 +10,5 @@ class blog extends Model
     use HasFactory;
 
     public $table = 'blog';
-    protected $fillable = ['title','description','image'];
+    protected $fillable = ['username','email,','password','title','description','image'];
 }

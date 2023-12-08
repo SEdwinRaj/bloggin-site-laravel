@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\blog;
+use League\CommonMark\Extension\DescriptionList\Node\Description;
 
 class blogController extends Controller
 {
@@ -26,5 +27,16 @@ class blogController extends Controller
         return redirect('dboard');
     }
 
+    public function showAll () {
+        $data = blog::all();
+        return view("home")->with("datas", $data);
+    }
+
+    public function showPage ($id) {
+        $data = blog::find($id);
+        $data['description'] = str_replace(".  ", ".<br>", $data['description']);
+
+        return view("dview")->with("data", $data);
+    }
     
 }

@@ -24,8 +24,12 @@ Route::get('/auth', function () {
 
 Route::get('/dboard',[blogController::class,'show']);
 
-Route::post('/create/page', function () {
+Route::get('/create/page', function () {
     return view('create');
 });
 
 Route::post('/create',[blogController::class,'create']);
+
+Route::get('/home', [blogController::class,'showAll']);
+
+Route::get('/content/{id}',[blogController::class,'showPage']);

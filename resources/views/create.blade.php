@@ -7,12 +7,14 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap');
         body {
-            background-color:rgb(137, 207, 240);
-            color:white;
+            background-color:rgb(241, 241, 255);
+            color:black;
             font-family: 'Poppins', sans-serif;
             margin: 20px;
         }
         h2 {
+            margin-top: 50px;
+            font-size: 30px;
             text-align: center;
         }
         label {
@@ -40,7 +42,7 @@
             background-color: #45a049;
         }
         .container{
-            width:80%;
+            width:70%;
             margin:auto;
             height:80%;
         }

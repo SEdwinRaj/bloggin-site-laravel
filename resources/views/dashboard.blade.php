@@ -12,7 +12,7 @@
             margin:0;
         }
         body{
-            background-color:rgb(137, 207, 240);
+            background-color:rgb(241, 241, 255);
         }
         .side-nav{
             position:absolute;
@@ -20,7 +20,7 @@
             width:40vh;
             height:95vh;
             margin:10px 10px 10px 10px;
-            border:solid 3px white;
+            border:solid 3px grey;
             border-radius:6%;
             
         }
@@ -30,15 +30,19 @@
             text-align:center;
             margin-top:15px;
             border-radius:10%;
+            padding:10px;
+        }
+        .side-nav-content a{
+            text-decoration: none;
         }
         .btn-side-nav{
-            display:inline-block;
+            background:transparent;
             width:100%;
             border:none;
             font-size:1.5rem;
             font-weight:500%;
             font-weight:500%;
-            padding:15px 0 15px 0;
+            padding:5px 0 5px 0;
             color:black;
         }
         .btn-side-nav:hover{
@@ -54,15 +58,14 @@
         .user-info{
             display: flex-box;
             float:right;
-            margin-right:20px;
-            color:white;
-            font-size:30px;
-            padding:20px;
+            padding:2.5% 3% 0 0;
+            color:black;
+            font-size:24px;
         }
         .blog-content{
             display: flex-box; 
             float:right;
-            margin:8% 10% 0 3%;
+            margin:8% 5% 0 3%;
             height:80vh;
             width:100vh;
             background-color:rgba(255,255,255,0.8);
@@ -109,9 +112,6 @@
             width:90%;
             margin:auto;
         }
-        a{
-            text-decoration:none;
-        }
         /* width */
         ::-webkit-scrollbar {
         width: 5px;
@@ -139,7 +139,7 @@
 
     <div class="user-info">
         <div class="user-name">
-            <h3>EdwinRaj S</h3>
+            <h3>EdwinRja S</h3>
         </div>
     </div>
 
@@ -147,12 +147,12 @@
         @foreach($datas as $data)
         <div class="content">
             <div class="blog-content-img">
-                <img src="{{ asset('storage/' . $data->image) }}" class="thumbnail">
+                <img src="{{ asset('/storage/' . $data->image) }}" class="thumbnail">
             </div>
 
             <div class="overview">
                 <div class="blog-title">
-                    <a href="content/{id}" class="blog-content-overview">{{ $data->title }}</a>
+                    <a href="/content/{{ $data->id }}" class="blog-content-overview">{{ $data->title }}</a>
                 </div>
 
                 <div class="blog-context">
@@ -188,7 +188,6 @@
                 <hr class="side-nav-line">
             </div>
         </div>
-    </form>
 
 </body>
 </html>

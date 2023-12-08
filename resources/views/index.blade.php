@@ -205,9 +205,10 @@ body{
     </div>
 
     <div id="login-form">
-        <form>
-            <input type="text" placeholder="Enter email or username"/>
-            <input type="password" placeholder="Enter password"/>
+        <form action="/sign_in" method="post">
+            @csrf
+            <input type="text" name="name" placeholder="Enter email or username"/>
+            <input type="password" name="pass" placeholder="Enter password"/>
             <button type="button" class="btn login">login</button>
             <p><a href="javascript:void(0)">Forgotten account</a></p>
             <hr/>
@@ -216,7 +217,8 @@ body{
     </div>
 
     <div id="signup-form">
-        <form>
+        <form action="/sign_up" method="post">
+            @csrf
             <input type="email" placeholder="Enter your email"/>
             <input type="text" placeholder="Choose username"/>
             <input type="password" placeholder="Create password"/>

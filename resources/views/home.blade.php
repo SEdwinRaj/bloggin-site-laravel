@@ -2,43 +2,157 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap');
         *{
-            background-color:rgb(241, 241, 255);
+            font-family: 'Poppins', sans-serif;
+            padding:0;
+            margin:0;
         }
-        .nav-bar{
-            display: inline-block;
+        body {
+            
+            background-color: rgb(241, 241, 255);
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
         }
-        .nav-bar a{
-            text-decoration:none;
-            padding:5px 5px 5px 30px;
-            font-size:24px;
+
+        nav {
+            overflow: hidden;
+        }
+
+        nav a {
+            float: left;
+            display: block;
+            font-size: 24px;
             color:black;
+            text-align: center;
+            padding: 30px 25px;
+            text-decoration: none;
         }
-        .title{
-            display: inline-block;
-            width:70%;
-            position:relative;
-            text-align:right;
-            font-size:26px;
+
+        nav h2{
+            float: right;
+            display: block;
+            padding: 18px 35px;
+            font-size: 40px;
+        }
+
+        nav a:hover {
+            color: rgb(0,137,255);
+        }
+        hr{
+            width:97%;
+            margin:auto;
+            height: 1.5px;
+            background-color: grey;
+        }
+        .blog-content{
+            margin:30px auto 30px auto;
+            min-height:80vh;
+            width:100vh;
+            background-color:rgba(255,255,255,0.8);
+            border-radius:2%;
+        }
+        .content{
+            padding: 30px 0 30px 0;
+        }
+        .blog-content-img{
+            display:inline-block;
+        }
+        .overview{
+            display:inline-block;
+            text-align:left;
+            vertical-align:top;
+            margin: 20px 30px 20px 20px;
+            height:10vh;
+            width:50vh;
+        }
+        .blog-title{
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .overview a{
+            text-decoration:none;
+            color:black;
+            font-size:35px;
+        }
+        .blog-context p{
+            font-size:20px;
+            color:grey;
+            margin-top:10px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .thumbnail{
+            margin:20px 10px 10px 40px;
+            height:15vh;
+            width:30vh;
+            border-radius:3%;
+        }
+        .blog-content hr{
+            width:90%;
+            margin:auto;
+        }
+        /* width */
+        ::-webkit-scrollbar {
+        width: 5px;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+        border-radius:30px;
+        background: #f1f1f1; 
+        }
+        
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+        background: #888; 
+        border-radius:30px;
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+        background: #555; 
         }
     </style>
 </head>
 <body>
-    <div class="header">
-        <div class="nav-bar">
-            <a href="#" class="nav-btn">Account</a>
-            <a href="#" class="nav-btn">Create Blog</a>
-            <a href="#" class="nav-btn">About</a>
-            <a href="#" class="nav-btn">Contact</a>
-        </div>
 
-        <div class="title">
+        <nav>
+            <a href="#home">Home</a>
+            <a href="/dboard">Dashboard</a>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Contact</a>
             <h2>BloomBard</h2>
+        </nav>
+        <hr>
+
+    <div class="blog-content">
+        @foreach($datas as $data)
+        <div class="content">
+            <div class="blog-content-img">
+                <img src="{{ asset('/storage/' . $data->image) }}" class="thumbnail">
+            </div>
+
+            <div class="overview">
+                <div class="blog-title">
+                    <a href="/content/{{ $data->id }}" class="blog-content-overview">{{ $data->title }}</a>
+                </div>
+
+                <div class="blog-context">
+                    <p>{{ $data->description }}</p>
+                </div>
+            </div>
         </div>
+        <hr>
+        @endforeach
+        
     </div>
+
 </body>
 </html>
