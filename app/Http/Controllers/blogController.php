@@ -16,7 +16,7 @@ class blogController extends Controller
         $data = $request->all();
         $title = $data["title"];
         $description = $data['description'];
-        $imagePath = $request->file('image')->store('images');
+        $imagePath = $request->file('image')->store('images', 'public');
         
         $data = new blog;
         $data->title = $title;

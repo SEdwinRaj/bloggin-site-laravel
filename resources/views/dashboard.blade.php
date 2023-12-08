@@ -32,13 +32,13 @@
             border-radius:10%;
         }
         .btn-side-nav{
-            background:transparent;
+            display:inline-block;
             width:100%;
             border:none;
             font-size:1.5rem;
             font-weight:500%;
             font-weight:500%;
-            padding:5px 0 5px 0;
+            padding:15px 0 15px 0;
             color:black;
         }
         .btn-side-nav:hover{
@@ -56,14 +56,8 @@
             float:right;
             margin-right:20px;
             color:white;
-            font-size:24px;
-        }
-        .user-img img{
-            width:40px;
-            height:40px;
-            border-radius:50%;
-            margin:15px 0 10px 25%;
-            
+            font-size:30px;
+            padding:20px;
         }
         .blog-content{
             display: flex-box; 
@@ -81,7 +75,7 @@
         }
         .overview{
             display:inline-block;
-            text-align:right;
+            text-align:left;
             vertical-align:top;
             margin: 20px 30px 20px 20px;
             height:10vh;
@@ -115,6 +109,9 @@
             width:90%;
             margin:auto;
         }
+        a{
+            text-decoration:none;
+        }
         /* width */
         ::-webkit-scrollbar {
         width: 5px;
@@ -141,11 +138,8 @@
 <body>
 
     <div class="user-info">
-        <div class="user-img">
-            <img src="default.jpg">
-        </div>
         <div class="user-name">
-            <h3>EdwinRja S</h3>
+            <h3>EdwinRaj S</h3>
         </div>
     </div>
 
@@ -153,12 +147,12 @@
         @foreach($datas as $data)
         <div class="content">
             <div class="blog-content-img">
-                <img src="{{ asset('/storage/app/' . $data->image) }}" class="thumbnail">
+                <img src="{{ asset('storage/' . $data->image) }}" class="thumbnail">
             </div>
 
             <div class="overview">
                 <div class="blog-title">
-                    <a href="#" class="blog-content-overview">{{ $data->title }}</a>
+                    <a href="content/{id}" class="blog-content-overview">{{ $data->title }}</a>
                 </div>
 
                 <div class="blog-context">
@@ -171,26 +165,24 @@
         
     </div>
 
-    <form action="/create/page" method="post">
-        @csrf
         <div class="side-nav">
             <div class="side-nav-content">
-                <button class="btn-side-nav">Account</button>
+                <a href="/account" class="btn-side-nav">Account</a>
             </div>
             <div class="side-nav-content">
-                <button class="btn-side-nav">Home</button>
+                <a href="/home" class="btn-side-nav">Home</a>
             </div>
             <div class="side-nav-content">
-                <button class="btn-side-nav">Create blog</button>
+                <a href="/create/page" class="btn-side-nav">Create blog</a>
             </div>
             <div class="side-nav-content">
-                <button class="btn-side-nav">About</button>
+                <a href="/about" class="btn-side-nav">About</a>
             </div>
             <div class="side-nav-content">
-                <button class="btn-side-nav">Support</button>
+                <a href="/support" class="btn-side-nav">Support</a>
             </div>
             <div class="side-nav-content">
-                <button class="btn-side-nav">Help</button>
+                <a href="/help"class="btn-side-nav">Help</a>
             </div>
             <div class="side-nav-content">
                 <hr class="side-nav-line">
