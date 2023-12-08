@@ -53,7 +53,7 @@
     <h2>Web Page Editor</h2>
 
     <div class="container">
-        <form action="/create" method="post">
+        <form action="/create" method="post" enctype="multipart/form-data">
             @csrf
             <label for="title">Title:</label>
             <input type="text" id="title" name="title" placeholder="Enter title">
@@ -62,7 +62,7 @@
             <textarea id="description" name="description" placeholder="Enter description"></textarea>
 
             <label for="file">Upload File:</label>
-            <input type="file" name="file" id="file">
+            <input type="file" name="image" id="file">
 
             <button type="submit">Publish</button>
         </form>

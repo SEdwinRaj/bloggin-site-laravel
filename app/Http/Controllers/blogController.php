@@ -6,10 +6,16 @@ use Illuminate\Http\Request;
 
 class blogController extends Controller
 {
-    public function create(request $req) {
-        $title = $req->title;
-        $title = $req->title;
-        $title = $req->title;
-        return $title;
+    public function create(request $request) {
+        if ($request->hasFile('image')) {
+            // File is being uploaded
+            $imagePath = $request->file('image')->store('images');
+            return $imagePath;
+        } else {
+            return "error";
+        }
+        
     }
+
+    
 }
