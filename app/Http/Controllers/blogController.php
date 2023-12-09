@@ -34,7 +34,6 @@ class blogController extends Controller
 
     public function showPage ($id) {
         $data = blog::find($id);
-        $data['description'] = str_replace(".  ", ".<br>", $data['description']);
 
         return view("dview")->with("data", $data);
     }

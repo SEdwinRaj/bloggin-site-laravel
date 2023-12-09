@@ -139,24 +139,26 @@
 
     <div class="user-info">
         <div class="user-name">
-            <h3>EdwinRja S</h3>
+            @foreach($data as $d)
+            <h3>{{ $d->username }}</h3>
+            @endforeach
         </div>
     </div>
 
     <div class="blog-content">
-        @foreach($datas as $data)
+        @foreach($data1 as $d1)
         <div class="content">
             <div class="blog-content-img">
-                <img src="{{ asset('/storage/' . $data->image) }}" class="thumbnail">
+                <img src="{{ asset('/storage/' . $d1->image) }}" class="thumbnail">
             </div>
 
             <div class="overview">
                 <div class="blog-title">
-                    <a href="/content/{{ $data->id }}" class="blog-content-overview">{{ $data->title }}</a>
+                    <a href="/content/{{ $d1->id }}" class="blog-content-overview">{{ $d1->title }}</a>
                 </div>
 
                 <div class="blog-context">
-                    <p>{{ $data->description }}</p>
+                    <p>{{ $d1->description }}</p>
                 </div>
             </div>
         </div>

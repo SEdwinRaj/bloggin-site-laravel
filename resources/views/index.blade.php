@@ -219,10 +219,10 @@ body{
     <div id="signup-form">
         <form action="/sign_up" method="post">
             @csrf
-            <input type="email" placeholder="Enter your email"/>
-            <input type="text" placeholder="Choose username"/>
-            <input type="password" placeholder="Create password"/>
-            <button type="button" class="btn signup">create account</button>
+            <input type="email" name="email" placeholder="Enter your email"/>
+            <input type="text" name="username" placeholder="Choose username"/>
+            <input type="password" name="pass"placeholder="Create password"/>
+            <button type="submit" class="btn signup">create account</button>
             <p>Clicking <strong>create account</strong> means that you are agree to our <a href="javascript:void(0)">terms of services</a>.</p>
             <hr/>
            

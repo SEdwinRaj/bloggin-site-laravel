@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\blogController;
+use App\Http\Controllers\userController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +23,7 @@ Route::get('/auth', function () {
     return view('index');
 });
 
-Route::get('/dboard',[blogController::class,'show']);
+// Route::get('/dboard',[blogController::class,'show']);
 
 Route::get('/create/page', function () {
     return view('create');
@@ -33,3 +34,5 @@ Route::post('/create',[blogController::class,'create']);
 Route::get('/home', [blogController::class,'showAll']);
 
 Route::get('/content/{id}',[blogController::class,'showPage']);
+
+Route::post('/sign_up',[userController::class,'sign_up']);
