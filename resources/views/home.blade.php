@@ -32,6 +32,14 @@
             text-decoration: none;
         }
 
+        button{
+            display: block;
+            border:none;
+            background-color: transparent;
+            padding: 30px 25px;
+            font-size: 24px;
+        }
+
         nav h2{
             float: right;
             display: block;
@@ -123,17 +131,23 @@
 <body>
 
         <nav>
+            <form action="/dboard/{{$d2}}" method="post">
+                @csrf
+                <button type="submit">Dashboard</button>
+           
             <a href="#home">Home</a>
-            <a href="/dboard">Dashboard</a>
             <a href="#about">About</a>
             <a href="#services">Services</a>
             <a href="#contact">Contact</a>
-            <h2>BloomBard</h2>
+            <a href="/">LogOut</a>
+            <!-- <h2>BloomBard</h2><br> -->
+            <h2>{{ $d2 }}</h2>
+            </form>
         </nav>
         <hr>
 
     <div class="blog-content">
-        @foreach($datas as $data)
+        @foreach($data1 as $data)
         <div class="content">
             <div class="blog-content-img">
                 <img src="{{ asset('/storage/' . $data->image) }}" class="thumbnail">

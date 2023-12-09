@@ -207,9 +207,9 @@ body{
     <div id="login-form">
         <form action="/sign_in" method="post">
             @csrf
-            <input type="text" name="name" placeholder="Enter email or username"/>
+            <input type="text" name="name" placeholder="Enter username"/>
             <input type="password" name="pass" placeholder="Enter password"/>
-            <button type="button" class="btn login">login</button>
+            <button type="submit" class="btn login">login</button>
             <p><a href="javascript:void(0)">Forgotten account</a></p>
             <hr/>
 

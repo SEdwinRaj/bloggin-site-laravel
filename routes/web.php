@@ -14,25 +14,18 @@ use App\Http\Controllers\userController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get("/", function () { return view('index'); });
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::post("/sign_up", [userController::class,"signup"]);
 
-Route::get('/auth', function () {
-    return view('index');
-});
+Route::post("/sign_in", [userController::class,"signin"]);
 
-// Route::get('/dboard',[blogController::class,'show']);
+Route::get("/tohome", [blogController::class,"home"]);
 
-Route::get('/create/page', function () {
-    return view('create');
-});
+Route::post("/dboard/{d2}", [blogController::class,'show1']);
 
-Route::post('/create',[blogController::class,'create']);
+Route::get('/create/page/{username}', [blogController::class,'createPage']);
 
-Route::get('/home', [blogController::class,'showAll']);
+Route::post('/create/{username}', [blogController::class,'create']);
 
-Route::get('/content/{id}',[blogController::class,'showPage']);
-
-Route::post('/sign_up',[userController::class,'sign_up']);
+Route::get('/dth/{username}', [blogController::class,'dth']);

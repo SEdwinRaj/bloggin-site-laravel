@@ -136,34 +136,34 @@
     </style>
 </head>
 <body>
-
+    
     <div class="user-info">
         <div class="user-name">
-            @foreach($data as $d)
-            <h3>{{ $d->username }}</h3>
-            @endforeach
+            <h3>{{ $username }}</h3>
         </div>
     </div>
 
     <div class="blog-content">
-        @foreach($data1 as $d1)
+    @if(!empty($d2))
+        @foreach($d2 as $d)
         <div class="content">
             <div class="blog-content-img">
-                <img src="{{ asset('/storage/' . $d1->image) }}" class="thumbnail">
+                <img src="{{ asset('/storage/' . $d->image) }}" class="thumbnail">
             </div>
 
             <div class="overview">
                 <div class="blog-title">
-                    <a href="/content/{{ $d1->id }}" class="blog-content-overview">{{ $d1->title }}</a>
+                    <a href="/content/{{ $d->id }}" class="blog-content-overview">{{ $d->title }}</a>
                 </div>
 
                 <div class="blog-context">
-                    <p>{{ $d1->description }}</p>
+                    <p>{{ $d->description }}</p>
                 </div>
             </div>
         </div>
         <hr>
         @endforeach
+    @endif
         
     </div>
 
@@ -172,10 +172,10 @@
                 <a href="/account" class="btn-side-nav">Account</a>
             </div>
             <div class="side-nav-content">
-                <a href="/home" class="btn-side-nav">Home</a>
+                <a href="/dth/{{ $username }}" class="btn-side-nav">Home</a>
             </div>
             <div class="side-nav-content">
-                <a href="/create/page" class="btn-side-nav">Create blog</a>
+                <a href="/create/page/{{$username}}" class="btn-side-nav">Create blog</a>
             </div>
             <div class="side-nav-content">
                 <a href="/about" class="btn-side-nav">About</a>
@@ -185,6 +185,9 @@
             </div>
             <div class="side-nav-content">
                 <a href="/help"class="btn-side-nav">Help</a>
+            </div>
+            <div class="side-nav-content">
+                <a href="/"class="btn-side-nav">LogOut</a>
             </div>
             <div class="side-nav-content">
                 <hr class="side-nav-line">

@@ -55,7 +55,7 @@
     <h2>Web Page Editor</h2>
 
     <div class="container">
-        <form action="/create" method="post" enctype="multipart/form-data">
+        <form action="/create/{{$username}}" method="post" enctype="multipart/form-data">
             @csrf
             <label for="title">Title:</label>
             <input type="text" id="title" name="title" placeholder="Enter title">
