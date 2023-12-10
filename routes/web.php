@@ -20,6 +20,8 @@ Route::post("/sign_up", [userController::class,"signup"]);
 
 Route::post("/sign_in", [userController::class,"signin"]);
 
+Route::get("/sign_in", function () { return view("index"); });
+
 Route::get("/tohome", [blogController::class,"home"]);
 
 Route::post("/dboard/{d2}", [blogController::class,'show1']);

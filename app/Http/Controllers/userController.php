@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\blogUser;
 use App\Models\blog;
+use Illuminate\Support\Facades\DB;
 
 class userController extends Controller
 {
@@ -45,25 +46,30 @@ class userController extends Controller
             // return "success";
             }
     public function signin(Request $request){
-        // $request->validate([
-        //     'name'=> 'required',
-        //     'pass'=> 'required',
-        // ]);
+        $request->validate([
+            'name'=> 'required',
+            'pass'=> 'required',
+        ]);
 
-        // $name = $request->name;
-        // $pass = $request->pass;
-        // $username = blogUser::query()->where('username', $name);
-        // $password = blogUser::query()->where('password', $pass);
+        $name = $request->name;
+        $pass = $request->pass;
+        $username = DB::table('blog_user')->where('username', $name)->value('username');
+        $password = DB::table('blog_user')->where('password', $pass)->value('password');
 
-        // if($){
-        //     return "valid";
-        // }
         $data1 = blog::all();
-        if((!empty(blogUser::query()->where('username', $request->name)) != 0) && (!empty(blogUser::query()->where('password', $request->pass)))){
-            
-            return redirect('/tohome')->with(["data1"=> $data1,"d2"=> $request->name]);
+
+        if(($username == $name)){
+            if($password == $pass){
+                return redirect('/tohome')->with(["data1"=> $data1,"d2"=> $request->name]);
+            }else{ return redirect('/sign_in')->with('error','incorrect password');}
         }
-        return "error";
+        else{ return redirect('/sign_in')->with('error','incorrect username');}
+        
+        // if((!empty(blogUser::query()->where('username', $request->name)) != 0) && (!empty(blogUser::query()->where('password', $request->pass)))){
+            
+        //     return redirect('/tohome')->with(["data1"=> $data1,"d2"=> $request->name]);
+        // }
+        // return "error";
     }
 
 }

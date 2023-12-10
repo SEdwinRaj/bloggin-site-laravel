@@ -182,6 +182,9 @@ body{
 .-box-sd-effect:hover{
     box-shadow: 0 4px 8px hsla(210,2%,84%,.2);
 }
+.error{
+    color:red;
+}
 
 @media only screen and (max-width:500px){
     .form-modal{
@@ -207,11 +210,17 @@ body{
     <div id="login-form">
         <form action="/sign_in" method="post">
             @csrf
+            @if(!empty($error))
+            <div class='error'>
+                {{ $error }}
+            </div>
+            @endif
             <input type="text" name="name" placeholder="Enter username"/>
             <input type="password" name="pass" placeholder="Enter password"/>
             <button type="submit" class="btn login">login</button>
             <p><a href="javascript:void(0)">Forgotten account</a></p>
             <hr/>
+           
 
         </form>
     </div>
