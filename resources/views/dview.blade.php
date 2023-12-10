@@ -43,6 +43,20 @@
         nav a:hover {
             color: rgb(0,137,255);
         }
+        button{
+            display: block;
+            border:none;
+            background-color: transparent;
+            padding: 30px 25px;
+            font-size: 24px;
+        }
+        .btn{
+            display: inline-block;
+        }
+        button:hover{
+            color: rgb(0,137,255);
+            cursor: pointer;
+        }
         hr{
             width:97%;
             margin:auto;
@@ -86,8 +100,13 @@
 <body>
 
         <nav>
+            <div class="btn">
+                <form action="/dboard/{{$username}}" method="post">
+                    @csrf
+                    <button type="submit">Dashboard</button>
+                </form>
+            </div>
             <a href="/home">Home</a>
-            <a href="/dboard">Dashboard</a>
             <a href="#about">About</a>
             <a href="#services">Services</a>
             <a href="#contact">Contact</a>

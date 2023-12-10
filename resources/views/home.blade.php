@@ -39,6 +39,13 @@
             padding: 30px 25px;
             font-size: 24px;
         }
+        .btn{
+            display: inline-block;
+        }
+        button:hover{
+            color: rgb(0,137,255);
+            cursor: pointer;
+        }
 
         nav h2{
             float: right;
@@ -131,18 +138,21 @@
 <body>
 
         <nav>
-            <form action="/dboard/{{$d2}}" method="post">
-                @csrf
-                <button type="submit">Dashboard</button>
-           
+            
             <a href="#home">Home</a>
+            <div class="btn">
+                <form action="/dboard/{{$d2}}" method="post">
+                    @csrf
+                    <button type="submit">Dashboard</button>
+                </form>
+            </div>
             <a href="#about">About</a>
             <a href="#services">Services</a>
             <a href="#contact">Contact</a>
             <a href="/">LogOut</a>
             <!-- <h2>BloomBard</h2><br> -->
             <h2>{{ $d2 }}</h2>
-            </form>
+            
         </nav>
         <hr>
 

@@ -29,3 +29,5 @@ Route::get('/create/page/{username}', [blogController::class,'createPage']);
 Route::post('/create/{username}', [blogController::class,'create']);
 
 Route::get('/dth/{username}', [blogController::class,'dth']);
+
+Route::get('/content/{id}', [blogController::class,'content']);

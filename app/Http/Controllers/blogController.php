@@ -71,5 +71,12 @@ class blogController extends Controller
         $data1 = blog::all();
         return redirect('/tohome')->with(["data1"=> $data1,"d2"=> $d2]);
     }
+
+    public function content ($id) {
+        $content = blog::find( $id );
+
+        return view("dview")->with(["data" => $content,'username'=>$content['username']]);
+        // return $content;
+    }
     
 }
