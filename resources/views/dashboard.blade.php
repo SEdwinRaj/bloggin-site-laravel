@@ -112,24 +112,20 @@
             width:90%;
             margin:auto;
         }
-        /* width */
         ::-webkit-scrollbar {
         width: 5px;
         }
 
-        /* Track */
         ::-webkit-scrollbar-track {
         border-radius:30px;
         background: #f1f1f1; 
         }
         
-        /* Handle */
         ::-webkit-scrollbar-thumb {
         background: #888; 
         border-radius:30px;
         }
 
-        /* Handle on hover */
         ::-webkit-scrollbar-thumb:hover {
         background: #555; 
         }
