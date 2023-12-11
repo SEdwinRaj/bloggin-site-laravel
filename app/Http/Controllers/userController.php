@@ -37,9 +37,9 @@ class userController extends Controller
         if(($username == $name)){
             if($password == $pass){
                 return redirect('/tohome')->with(["data1"=> $data1,"d2"=> $request->name]);
-            }else{ return redirect('/sign_in')->with('error','incorrect password');}
+            }else{ return view('index')->with('error','incorrect password');}
         }
-        else{ return redirect('/sign_in')->with('error','incorrect username');}
+        else{ return view('index')->with('error','incorrect username');}
     }
 
 }
