@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\blogController;
 use App\Http\Controllers\userController;
+use App\Http\Controllers\commentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,4 +33,14 @@ Route::post('/create/{username}', [blogController::class,'create']);
 
 Route::get('/dth/{username}', [blogController::class,'dth']);
 
-Route::get('/content/{id}', [blogController::class,'content']);
+Route::get('/content/{id}/{username}', [blogController::class,'content'])->name('content');
+
+Route::post('/delete/{id}/{username}', [blogController::class,'delete'])->name('delete');
+
+Route::post('/add-comment/{username}', [blogController::class,'addComment']);
+
+// Route::post('/like', [blogController::class,'like']);
+
+// Route::post('/dislike/{username}/{id}', [blogController::class,'dislike']);
+
+Route::post('/profile/{username}', [blogController::class, 'profile']);
