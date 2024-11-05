@@ -6,22 +6,26 @@
     <title>Document</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
         *{
-            font-family: 'Poppins', sans-serif;
+            font-family: 'lato', sans-serif;
             padding:0;
             margin:0;
         }
         body{
-            background-color:rgb(241, 241, 255);
+            background-color:rgb(240,240,240);
         }
         .side-nav{
-            position:absolute;
+            position:fixed;
+            top:0;
+            left :0;
+            z-index:1;
             background-color:rgba(255,255,255,0.8);
             width:40vh;
-            height:95vh;
-            margin:10px 10px 10px 10px;
-            border:solid 3px grey;
-            border-radius:6%;
+            height:100vh;
+            /* margin:10px 10px 10px 10px; */
+            /* border:solid 3px grey; */
+            /* border-radius:6%; */
             
         }
         .side-nav-content{
@@ -34,6 +38,7 @@
         }
         .side-nav-content a{
             text-decoration: none;
+            font-weight:600;
         }
         .btn-side-nav{
             background:transparent;
@@ -52,7 +57,7 @@
         .side-nav-line{
             width:80%;
             margin:auto;
-            border:2px solid black;
+            /* border:2px solid black; */
             border-radius:20px;
         }
         .user-info{
@@ -63,15 +68,18 @@
             font-size:24px;
         }
         .blog-content{
-            display: flex-box; 
+            position:absolute; 
             float:right;
-            margin:8% 5% 0 3%;
-            height:80vh;
+            /* margin:8% 7% 0 0; */
+            margin-bottom:10rem;
+            top:10%;
+            left:30%;
+            /* height:80vh; */
             width:100vh;
             background-color:rgba(255,255,255,0.8);
-            border:solid 3px grey;
+            /* border:solid 3px grey; */
             border-radius:2%;
-            overflow-y:auto;
+            /* overflow-y:auto; */
         }
         .blog-content-img{
             display:inline-block;
@@ -88,6 +96,7 @@
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
+            font-weight:600;
         }
         .overview a{
             text-decoration:none;
@@ -95,12 +104,21 @@
             font-size:35px;
         }
         .blog-context p{
-            font-size:20px;
+            display: -webkit-box; /* Use flexbox for truncation */
+            -webkit-line-clamp: 3; /* Show only 3 lines */
+            -webkit-box-orient: vertical; /* Set the orientation to vertical */
+            overflow: hidden; /* Hide any overflowed text */
+            text-overflow: ellipsis; /* Add the ellipsis (...) */
+            line-height: 1.5; /* Set the line-height to control line spacing */
+            height: 4.5em; /* 3 lines * line-height (e.g., 1.5em * 3) */
+            margin-top:1rem;
+
+            /* font-size:20px;
             color:grey;
             margin-top:10px;
             white-space: nowrap;
             overflow: hidden;
-            text-overflow: ellipsis;
+            text-overflow: ellipsis; */
         }
         .thumbnail{
             margin:20px 10px 10px 40px;
@@ -129,15 +147,30 @@
         ::-webkit-scrollbar-thumb:hover {
         background: #555; 
         }
+        .name{
+            weight:500;
+            font-size:32px;
+            color: rgb(0,137,255);
+        }
+        .delete-btn {
+            display: inline-block;
+        }
+        .delete-btn button{
+            background:red;
+            color:white;
+            border:none;
+            padding:10px;
+            /* float:right; */
+        }
     </style>
 </head>
 <body>
     
-    <div class="user-info">
+    <!-- <div class="user-info">
         <div class="user-name">
             <h3>{{ $username }}</h3>
         </div>
-    </div>
+    </div> -->
 
     <div class="blog-content">
     @if(!empty($d2))
@@ -149,13 +182,22 @@
 
             <div class="overview">
                 <div class="blog-title">
-                    <a href="/content/{{ $d->id }}" class="blog-content-overview">{{ $d->title }}</a>
+                    <a href="{{ route('content', [$d->id, $username]) }}" class="blog-content-overview">{{ $d->title }}</a>
                 </div>
 
                 <div class="blog-context">
                     <p>{{ $d->description }}</p>
                 </div>
             </div>
+
+            <div class="delete-btn">
+                <form action="{{ route('delete', [$d->id, $username]) }}" method="post">
+                    @csrf
+                    <button type="submit">Delete</button>
+                </form>
+            </div>
+
+            
         </div>
         <hr>
         @endforeach
@@ -164,6 +206,10 @@
     </div>
 
         <div class="side-nav">
+        
+            <div class="side-nav-content">
+                <h3 class="name">{{ $username }}</h3>
+            </div>
             <div class="side-nav-content">
                 <a href="/account" class="btn-side-nav">Account</a>
             </div>

@@ -6,14 +6,17 @@
     <title>Document</title>
     <style>
         @import url('https://fonts.googleapis.com/css?family=Montserrat|Quicksand');
+        @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+        /* @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap'); */
 
 *{
-    font-family: 'quicksand',Arial, Helvetica, sans-serif;
+    /* font-family: 'quicksand',Arial, Helvetica, sans-serif; */
+    font-family: 'lato', sans-serif;
     box-sizing: border-box;
 }
 
 body{
-    background:#fff;
+    background:rgb(240,240,240);;
 }
 
 .form-modal{
@@ -54,7 +57,7 @@ body{
 }
 
 .form-modal .login , .form-modal .signup{
-    background:rgb(137, 207, 240);
+    background:rgb(0,137,255);
     color:#fff;
 }
 
@@ -90,7 +93,7 @@ body{
 }
 
 #login-toggle{
-    background:rgb(137, 207, 240);
+    background:rgb(0,137,255);
     color:#ffff;
 }
 
@@ -150,7 +153,7 @@ body{
 }
 
 .form-modal p a{
-    color:rgb(137, 207, 240);
+    color:rgb(0,137,255);
     text-decoration: none;
     transition:0.2s;
 }
@@ -244,14 +247,14 @@ body{
     function toggleSignup(){
    document.getElementById("login-toggle").style.backgroundColor="#fff";
     document.getElementById("login-toggle").style.color="#222";
-    document.getElementById("signup-toggle").style.backgroundColor="rgb(137, 207, 240)";
+    document.getElementById("signup-toggle").style.backgroundColor="rgb(0,137,255)";
     document.getElementById("signup-toggle").style.color="#fff";
     document.getElementById("login-form").style.display="none";
     document.getElementById("signup-form").style.display="block";
 }
 
 function toggleLogin(){
-    document.getElementById("login-toggle").style.backgroundColor="rgb(137, 207, 240)";
+    document.getElementById("login-toggle").style.backgroundColor="rgb(0,137,255)";
     document.getElementById("login-toggle").style.color="#fff";
     document.getElementById("signup-toggle").style.backgroundColor="#fff";
     document.getElementById("signup-toggle").style.color="#222";

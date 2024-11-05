@@ -6,10 +6,11 @@
     <title>Web Page Editor</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
         body {
-            background-color:rgb(241, 241, 255);
+            background-color:rgb(240,240,240);
             color:black;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'lato', sans-serif;
             margin: 20px;
         }
         h2 {
@@ -21,6 +22,7 @@
             font-size:24px;
             display: block;
             margin-bottom: 5px;
+            font-weight:600;
         }
         input, textarea {
             width: 100%;
@@ -31,12 +33,13 @@
         button {
             padding: 10px;
             font-size:20px;
-            background-color: rgb(129, 216, 208);
+            background-color: rgb(0,137,255);
             color: white;
             border: none;
             cursor: pointer;
             width: 100%;
-            border:2px solid grey;
+            /* border:2px solid grey; */
+            border-radius:3rem;
         }
         button:hover {
             background-color: #45a049;
@@ -48,6 +51,11 @@
         }
         #description{
             height:20vh;
+        }
+        .error {
+            color:red;
+            font-size:1rem;
+            padding:.5rem 0 .5rem 0;
         }
     </style>
 </head>
@@ -63,10 +71,19 @@
             <label for="description">Description:</label>
             <textarea id="description" name="description" placeholder="Enter description"></textarea>
 
+            @if(!empty($error))
+                <div class='error'>
+                    {{ $error }}
+                </div>
+            @endif
+
             <label for="file">Upload File:</label>
             <input type="file" name="image" id="file">
 
-            <button type="submit">Publish</button>
+            <div class="submit-button" id="submit-button">
+                <button type="submit" >Publish</button>
+            </div>
+
         </form>
     </div>
 </body>
